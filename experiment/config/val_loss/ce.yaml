@@ -1,0 +1,6 @@
+name: ce
+
+ignore_index: -100
+
+object:
+  _target_: loss_modules.ce_dice.CELoss

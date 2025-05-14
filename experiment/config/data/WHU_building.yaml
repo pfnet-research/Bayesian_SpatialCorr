@@ -1,0 +1,16 @@
+dataset_name: 'WHU_building' 
+num_classes: 2
+noise_type: 'clean_mask' 
+original_imsize: 512
+imsize: 512
+augment_type: default
+geo_aug: False
+train_maskdir: ???
+in_channels: 3
+save_imageids:
+  - 10
+  - 100
+
+data_size:
+  downsample_ratio: -1
+

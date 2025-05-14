@@ -1,0 +1,17 @@
+name: emloss 
+freeze_confusion: False
+label_smooth: 0.1
+e0_T: 1.0
+efinal_T: 1.0
+gamma: 1.0
+enfepoch: 100
+
+object:
+  _target_: model_loss_wrapper.emloss.EMloss
+  freeze_confusion: ${loss.freeze_confusion}
+  label_smooth: ${loss.label_smooth}
+  class_num: ${data.num_classes}
+  e0_T: ${loss.e0_T}
+  efinal_T: ${loss.efinal_T}
+  gamma: ${loss.gamma}
+  enfepoch: ${loss.enfepoch}

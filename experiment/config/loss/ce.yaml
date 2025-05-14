@@ -1,0 +1,6 @@
+name: ce
+
+ignore_index: -100
+
+object:
+  _target_: model_loss_wrapper.ce_dice.CELoss

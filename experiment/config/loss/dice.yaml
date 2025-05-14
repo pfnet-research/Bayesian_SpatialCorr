@@ -1,0 +1,4 @@
+name : dice
+
+object:
+  _target_ : model_loss_wrapper.ce_dice.DiceLoss

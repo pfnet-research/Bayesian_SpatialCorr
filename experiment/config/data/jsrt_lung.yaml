@@ -1,0 +1,17 @@
+dataset_name: 'jsrt_lung' 
+num_classes: 2
+noise_type: 'clean_mask'
+original_imsize: 256
+imsize: 256
+augment_type: default
+geo_aug: False
+train_maskdir: ???
+in_channels: 3
+save_imageids:
+  - 'JPCLN002'
+  - 'JPCLN033'
+  
+data_size:
+  downsample_ratio: -1
+
+

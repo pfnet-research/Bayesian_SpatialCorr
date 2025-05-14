@@ -1,0 +1,27 @@
+name: bayesian_spatialcorr 
+rhosigma_init: 0.5 # Spatial correlation parameter for prior distribution of η
+rhogamma_init: ${data.rhosigma_init} # Spatial correlation parameter for posterior distribution of η
+mu_init: -1.5
+sigma_init: 1
+m_init: -1.5
+gamma_init: 1
+imsize: ${data.imsize}
+params_base_storage: './_tmp'
+trainable: True
+imgwise_lr: 0.001
+imgwise_wd: 0.0
+rho_lr: 0.0
+mu_lr: 0.0
+sigma_lr: 0.0
+estep: 1
+
+object:
+  _target_: model_loss_wrapper.bayesian_spatialcorr.Bayesian_SpatialCorr
+  rhosigma_init: ${loss.rhosigma_init}
+  rhogamma_init: ${loss.rhogamma_init}
+  mu_init: ${loss.mu_init}
+  sigma_init: ${loss.sigma_init}
+  m_init: ${loss.m_init}
+  gamma_init: ${loss.gamma_init}
+  imsize: ${loss.imsize}
+  trainable: ${loss.trainable}

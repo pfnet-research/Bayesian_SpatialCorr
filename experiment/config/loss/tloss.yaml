@@ -1,0 +1,12 @@
+name: tloss
+nu: 1.0
+epsilon: 0.00000001
+reduction: 'mean'
+loss_lr: 0.001
+
+object:
+  _target_: model_loss_wrapper.tloss.TLoss
+  image_size: ${data.imsize}
+  nu: ${loss.nu}
+  epsilon: ${loss.epsilon}
+  reduction: ${loss.reduction}
