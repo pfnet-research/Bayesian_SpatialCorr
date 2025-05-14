@@ -1,0 +1,8 @@
+name: ${model.object.encoder_name}
+
+object:
+  _target_: segmentation_models_pytorch.Unet # [Unet, UnetPlusPlus, MAnet, Linknet, FPN, PSPNet, DeepLabV3, DeepLabV3Plus, PAN,]
+  encoder_name: efficientnet-b0
+  encoder_weights: imagenet
+  in_channels: ${data.in_channels}
+  classes: ${data.num_classes}

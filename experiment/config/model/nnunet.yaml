@@ -1,0 +1,21 @@
+name: nnunet
+
+object:
+  _target_: nnUNet.utils.create_model
+  num_channels: ${data.in_channels}
+  base_num_features: 32
+  num_classes: ${data.num_classes}
+  pool_op_kernel_sizes: 
+    - [2, 2]
+    - [2, 2]
+    - [2, 2]
+    - [2, 2]
+    - [2, 2]
+  deep_supervision: False
+  conv_kernel_sizes:
+      - [3, 3]
+      - [3, 3]
+      - [3, 3]
+      - [3, 3]
+      - [3, 3]
+      - [3, 3]

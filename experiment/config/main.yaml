@@ -1,0 +1,52 @@
+project_name: Bayesian_Spatial_Correlation
+expname: ???
+vername: ???
+experiment_name: ???
+exp_id: ???
+exp_randv: ???
+implementation_detail: null
+amp: False
+debug: False
+distributed: True
+save_imageids: ???
+resume_basedir: null
+
+hydra:
+  run:
+    dir: ${utils.save_dir}
+  output_subdir: config
+
+defaults:
+  - _self_
+  - data: ???
+  - loss: ???
+  - val_loss: ce
+  - model: efficientnet
+
+utils:
+  save: true
+  base_savedir: ???
+  base_savename: ${expname}/${vername}/${data.dataset_name}/downsample_ratio${data.data_size.downsample_ratio}/${data.noise_type}/${loss.name}/seed${train.seed}
+  save_dir: ${utils.base_savedir}/${utils.base_savename}/${now:%Y-%m-%d_%H-%M-%S}
+  base_datadir: ???
+  data_dir: ${utils.base_datadir}/${data.dataset_name}
+  saveimageids_dir: ???
+  device: cuda
+
+optimizer:
+  name: Adam # choices=['SGD', 'Adam', 'AdamW']
+
+train:
+  seed: 2023
+  epoch: 200
+  max_lr: 0.001
+  minlr_scale: 20
+  weight_decay: 0.0
+  batch_size: 16
+  num_workers: 0
+  early_stopping: 5
+  grad_clip: False
+
+val:
+  per_epoch: 5
+
